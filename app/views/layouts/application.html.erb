@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="OrderMeal">
+<head>
+  <title>Ordermeal</title>
+  <%= stylesheet_link_tag 'base', media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= yield :app_css %>
+  <%= csrf_meta_tags %>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<div id="wrap">
+  <%= render :partial => 'layouts/header' %>
+</div>
+
+<%= yield %>
+
+<%= render :partial => 'layouts/footer' %>
+
+</body>
+</html>

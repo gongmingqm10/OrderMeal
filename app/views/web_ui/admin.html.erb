@@ -1,0 +1,21 @@
+<!doctype html>
+<html ng-app="OrderMeal">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no,width=device-width">
+    <title>管理中心</title>
+    <%= stylesheet_link_tag 'admin', media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag 'app-admin' %>
+</head>
+<body ng-controller="AdminController" >
+
+<div class="nav navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <a class="navbar-brand" href="/admin"><i class="fa fa-home"></i> 管理中心</a>
+      <div class="navbar-right">
+      </div>
+    </div>
+</div>
+<div ng-view></div>
+</body>
+</html>

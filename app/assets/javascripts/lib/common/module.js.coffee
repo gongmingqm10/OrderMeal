@@ -1,0 +1,1 @@
+angular.module('OrderMeal:Common',['ngCookies', 'ngSanitize'])

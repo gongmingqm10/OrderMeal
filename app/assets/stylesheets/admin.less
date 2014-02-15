@@ -1,0 +1,147 @@
+@import "base";
+
+body {
+  background-color: #E9E9E9;
+  .nav {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0dede;
+    box-shadow: 0 -1px 0 #fefcfc inset,0 0 4px rgba(0,0,0,.15);
+    -moz-shadow: 0 -1px 0 #fefcfc inset,0 0 4px rgba(0,0,0,.15);
+    -webkit-shadow: 0 -1px 0 #fefcfc inset,0 0 4px rgba(0,0,0,.15);
+  }
+  .main {
+    padding: 15px;
+    margin-top: 60px;
+    .item {
+      width: 24%;
+      height: 320px;
+      margin: 6px 0.5%;
+      background-color: #ffffff;
+      float: left;
+      position: relative;
+      overflow: hidden;
+
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+
+      box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+      -moz-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+      -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+
+      &:hover {
+        box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+        -moz-box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+        -webkit-box-shadow: 0 1px 5px rgba(34, 25, 25, .8);
+        filter: progid:DXImageTransform.Microsoft.Shadow(color = #979797, direction = 135, strength = 3);
+      }
+
+      &:first-child {
+        background-color: #c9e2b3;
+        p {
+          font-size: xx-large;
+          color: #ffffff;
+          text-align: center;
+          margin-top: 135px;
+        }
+      }
+      .image-container {
+        width: 100%;
+        height: 250px;
+        background-color: #c9e2b3;
+        display: block;
+        position: relative;
+        overflow: hidden;
+        img {
+          position: absolute;
+        }
+        .bottom-float {
+          width: 100%;
+          height: 40px;
+          padding: 4px 6px;
+          background-color: #ffffff;
+          position: absolute;
+          left: 0px;
+          bottom: 0px;
+          opacity: 0.6;
+          filter:alpha(opacity=60); /* For IE8 and earlier */
+          .name {
+            padding: 0;
+            font-size: x-large;
+            color: #000000;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline;
+          }
+          .price {
+            color: darkred;
+            font-size: large;
+            padding: 6px;
+            display: inline;
+          }
+
+        }
+      }
+
+      .content {
+        padding: 6px;
+        max-height: 65px;
+        overflow: hidden;
+      }
+
+      .edit{
+        width: 32px;
+        height: 32px;
+        font-size: large;
+        color: #ffffff;
+        background-color: #428bca;
+        padding: 3px;
+        text-align: center;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        display: none;
+        -moz-border-radius-topright: 5px;
+        -webkit-border-top-right-radius: 5px;
+        border-top-right-radius: 5px;
+        -moz-border-radius-bottomleft: 5px;
+        -webkit-border-bottom-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+
+        box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+        -moz-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+        -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+
+      }
+      .delete{
+        width: 32px;
+        height: 32px;
+        color: #ffffff;
+        font-size: large;
+        background-color: #428bca;
+        padding: 3px;
+        text-align: center;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: none;
+        -moz-border-radius-topleft: 5px;
+        -webkit-border-top-left-radius: 5px;
+        border-top-left-radius: 5px;
+        -moz-border-radius-bottomright: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+        -moz-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+        -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, .4);
+
+      }
+    }
+    .food-image {
+      width: 200px;
+    }
+    input[type="file"] {
+      display: inline;
+    }
+  }
+}

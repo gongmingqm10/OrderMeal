@@ -1,0 +1,1 @@
+angular.module('OrderMeal:Login', ['OrderMeal:Common'])

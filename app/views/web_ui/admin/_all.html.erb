@@ -1,0 +1,17 @@
+<div class="container main" >
+  <div class="item add-btn" data-ng-click="foods_new()"><p><i class="fa fa-plus"></i></p></div>
+  <div class=" item item-food" om-show-button data-ng-repeat="food in foods">
+    <div class="image-container">
+      <img om-image-crop ng-src='{{food.food.picture}}'>
+      <div class="bottom-float">
+        <p class="name col-md-8">{{food.food.name}}</p>
+        <p class="price pull-right"><i class="fa fa-rmb"></i>{{food.food.price}}</p>
+      </div>
+    </div>
+    <div class="content">
+      <p class="describe">{{food.food.describe}}</p>
+    </div>
+    <div class="edit" data-ng-click="edit_food(food.food.food_id)"><i class="fa fa-edit"></i></div>
+    <div class="delete" data-ng-click="delete_food(food.food.food_id)"><i class="fa fa-trash-o"></i></div>
+  </div>
+</div>
