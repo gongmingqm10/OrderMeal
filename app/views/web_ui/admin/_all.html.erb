@@ -10,8 +10,8 @@
 <div class="content">
   <p class="describe">{{food.food.describe}}</p>
 </div>
-<div class="edit" data-ng-click="edit_food(food.food.food_id)"><i class="fa fa-edit"></i></div>
-<div class="delete" data-ng-click="delete_food(food.food.food_id)" data-target="#deleteConfirm"><i class="fa fa-trash-o"></i></div>
+<div class="edit" data-ng-click="edit_food(food.food.food_id, $event); $event.stopPropagation();"><i class="fa fa-edit"></i></div>
+<div class="delete" data-ng-click="delete_food(food.food.food_id); $event.stopPropagation();" data-target="#deleteConfirm"><i class="fa fa-trash-o"></i></div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
