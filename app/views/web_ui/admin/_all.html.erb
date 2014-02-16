@@ -12,6 +12,25 @@
       <p class="describe">{{food.food.describe}}</p>
     </div>
     <div class="edit" data-ng-click="edit_food(food.food.food_id)"><i class="fa fa-edit"></i></div>
-    <div class="delete" data-ng-click="delete_food(food.food.food_id)"><i class="fa fa-trash-o"></i></div>
+    <div class="delete" data-ng-click="delete_food(food.food.food_id)" data-target="#deleteConfirm"><i class="fa fa-trash-o"></i></div>
   </div>
+  <!-- Modal -->
+  <div class="modal fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="close" data-dismiss="modal" aria-hidden="true">&times;</p>
+        </div>
+        <div class="modal-body">
+          <p>你即将删除本菜品，删除后不可恢复</p>
+          <p>确定删除？</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取 消</button>
+          <button id="ok" type="button" class="btn btn-primary">确 定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

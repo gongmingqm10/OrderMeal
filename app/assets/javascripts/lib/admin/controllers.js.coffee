@@ -19,9 +19,14 @@ angular.module('OrderMeal:Admin').controller 'AdminAllController', ['$scope', '$
     $location.url('/edit/'+food_id)
 
   $scope.delete_food = (food_id) ->
-    api.user_delete_food food_id, () ->
-      alert("删除成功！")
+    $scope.delete_food_id = food_id
+    $('#deleteConfirm').modal('show')
+    return
+
+  $('#ok').on 'click', () ->
+    api.user_delete_food $scope.delete_food_id, () ->
       api.user_index_all_food success_handler, error_handler
+    $('#deleteConfirm').modal('hide')
 
 ]
 
