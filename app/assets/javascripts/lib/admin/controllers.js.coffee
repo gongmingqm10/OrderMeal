@@ -82,7 +82,7 @@ angular.module('OrderMeal:Admin').controller 'AdminAllController', ['$scope', '$
         return
 ]
 
-angular.module('OrderMeal:Admin').controller 'AdminFoodController', ['$scope', '$location', 'api', ($scope, $location, api) ->
+angular.module('OrderMeal:Admin').controller 'AdminFoodNewController', ['$scope', '$location', 'api', ($scope, $location, api) ->
 
   $scope.reset_food()
 
