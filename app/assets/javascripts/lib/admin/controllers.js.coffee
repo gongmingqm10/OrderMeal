@@ -59,6 +59,9 @@ angular.module('OrderMeal:Admin').controller 'AdminAllController', ['$scope', '$
   $scope.edit_food = (food_id) ->
     $location.url('/edit/'+food_id)
 
+  $scope.index_food = (food_id) ->
+    $location.url('/food/'+food_id)
+
   $scope.delete_food = (food_id) ->
     $scope.delete_food_id = food_id
     $('#ok').data('id', food_id)
@@ -100,5 +103,15 @@ angular.module('OrderMeal:Admin').controller 'AdminFoodEditController', ['$scope
 
   $scope.update_food = ->
     api.user_update_food $scope.food_id, $scope.food, $scope.food_success_handler, $scope.food_error_handler
+
+]
+
+angular.module('OrderMeal:Admin').controller 'AdminFoodIndexController', ['$scope', '$routeParams', '$location', 'api', ($scope, $routeParams, $location, api) ->
+
+  $scope.food_id = $routeParams.food_id
+
+  api.user_get_food_by_id $scope.food_id, (data) ->
+    $scope.food = data.food
+
 
 ]

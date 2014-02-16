@@ -68,6 +68,7 @@ Ordermeal::Application.routes.draw do
   get 'admin/all', to: 'web_ui#admin_all'
   get 'admin/new', to: 'web_ui#admin_new'
   get 'admin/edit', to: 'web_ui#admin_edit'
+  get 'admin/food', to: 'web_ui#food_index'
 
   root 'web_ui#index'
 

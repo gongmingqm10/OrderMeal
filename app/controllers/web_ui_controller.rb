@@ -47,6 +47,10 @@ class WebUiController < ApplicationController
     render partial: 'web_ui/admin/edit', layout: nil
   end
 
+  def food_index
+    render partial: 'web_ui/food/index', layout: nil
+  end
+
   private
 
   def user_info(user)
