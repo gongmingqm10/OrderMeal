@@ -1,7 +1,11 @@
+//= require jquery
+//= require jquery-ui
+//= require bootstrap.min
 //= require angular.min
 //= require angular-cookies.min
 //= require angular-sanitize.min
 //= require angular-route.min
+//= require underscore
 //= require lib/common/module
 //= require lib/common/services
 //= require lib/common/directives
