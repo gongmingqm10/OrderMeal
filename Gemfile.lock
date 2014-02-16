@@ -314,7 +314,6 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jekyll
   jquery-rails
-  less (~> 2.4.0)
   less-rails
   markaby
   mongoid (~> 4.0.0.alpha1)!

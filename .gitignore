@@ -4,6 +4,7 @@
 capybara-*.html
 .rspec
 .rvmrc
+.DS_Store
 .idea
 /.bundle
 /vendor/bundle

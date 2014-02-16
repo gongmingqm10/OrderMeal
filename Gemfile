@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 gem 'commonjs', '~> 0.2.7'
-gem 'less', '~> 2.4.0'
 gem 'less-rails'
 gem 'underscore-rails'
 

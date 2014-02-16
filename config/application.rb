@@ -21,6 +21,10 @@ module Ordermeal
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    config.less.paths << "#{Rails.root}/app/assets/stylesheets"
+    config.less.paths << "#{Rails.root}/app/assets/stylesheets/bootstrap"
+    config.app_generators.stylesheet_engine :less
+
     Mongoid.raise_not_found_error = false
     I18n.enforce_available_locales = false
   end
