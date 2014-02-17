@@ -39,6 +39,7 @@ GEM
     arel (4.0.1)
     atomic (1.1.14)
     awesome_print (1.2.0)
+    bcrypt-ruby (3.1.2)
     blankslate (2.1.2.4)
     brakeman (2.2.0)
       erubis (~> 2.6)
@@ -54,6 +55,7 @@ GEM
     bson (2.1.2)
     bson_ext (1.5.1)
     builder (3.1.4)
+    cancan (1.6.10)
     capistrano (2.15.5)
       highline
       net-scp (>= 1.0.0)
@@ -300,8 +302,10 @@ PLATFORMS
 DEPENDENCIES
   aasm
   awesome_print
+  bcrypt-ruby
   brakeman (~> 2.2.0)
   bson_ext
+  cancan
   capistrano
   capistrano-ext
   capistrano-unicorn

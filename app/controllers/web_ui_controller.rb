@@ -2,12 +2,10 @@ class WebUiController < ApplicationController
 
   before_action :login?, except: [:login, :sessions, :layout]
 
-  def index
-    if @json['role'] == 'admin'
-      redirect_to admin_path
-    else
-      render 'home', layout: nil
-    end
+  rescue_from CanCan::AccessDenied do |exception|
+    session.delete(:user_id)
+    cookies.delete(:user)
+    redirect_to login_path, :alert => 'Access Denied'
   end
 
   def login
@@ -15,7 +13,6 @@ class WebUiController < ApplicationController
   end
 
   def sessions
-
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id.to_s
@@ -31,7 +28,13 @@ class WebUiController < ApplicationController
     end
   end
 
+  def index
+    authorize! :user_access, :page
+    render 'home', layout: nil
+  end
+
   def admin
+    authorize! :admin_access, :page
     render 'admin', layout: nil
   end
 

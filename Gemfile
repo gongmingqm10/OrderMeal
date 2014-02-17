@@ -39,6 +39,12 @@ gem 'aasm'
 #image uploader
 gem 'carrierwave'
 
+# cancan is used for user authorize.
+gem 'cancan'
+
+# Use ActiveModel has_secure_password
+gem 'bcrypt-ruby', require: 'bcrypt'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
