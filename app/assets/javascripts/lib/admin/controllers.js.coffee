@@ -9,14 +9,6 @@ angular.module('OrderMeal:Admin').controller 'AdminController', ['$scope', '$loc
   $scope.cancel = ->
     $location.url('/all')
 
-  upload_on_success = (response_data)->
-    $('.food-image').attr('src', response_data.url)
-    $scope.food.picture = response_data.url
-    $scope.error = "" if $scope.error
-
-  upload_on_error = (data)->
-    $scope.error = "创建菜品失败，服务器正在努力恢复中..."
-
   $scope.upload_image = ->
     file_data = $('#file').prop('files')[0]
     form_data = new FormData();
@@ -39,12 +31,17 @@ angular.module('OrderMeal:Admin').controller 'AdminController', ['$scope', '$loc
 
   $scope.food_error_handler = ->
     $scope.error = "数据保存失败，服务器正在努力恢复中..."
+
+  upload_on_success = (response_data)->
+    $('.food-image').attr('src', response_data.url)
+    $scope.food.picture = response_data.url
+    $scope.error = "" if $scope.error
+
+  upload_on_error = (data)->
+    $scope.error = "创建菜品失败，服务器正在努力恢复中..."
 ]
 
 angular.module('OrderMeal:Admin').controller 'AdminAllController', ['$scope', '$location', '$timeout', 'api', ($scope, $location, $timeout, api) ->
-
-  $scope.foods_new = ->
-    $location.url('/new')
 
   index_success_handler = (data) ->
     $scope.foods = data
@@ -54,19 +51,28 @@ angular.module('OrderMeal:Admin').controller 'AdminAllController', ['$scope', '$
   index_error_handler = ->
     $scope.error = "抱歉，服务器正在努力恢复中..."
 
-  api.user_index_all_food index_success_handler, index_error_handler
+  remove_foods_by_id = (id) ->
+    _.each $scope.foods, (food, index) ->
+      if food.food.food_id == id
+        $scope.foods.splice(index, 1)
+        return
 
-  $scope.edit_food = (food_id) ->
-    $location.url('/edit/'+food_id)
+  $scope.foods_new = ->
+    $location.url('/new')
 
   $scope.index_food = (food_id) ->
     $location.url('/food/'+food_id)
+
+  $scope.edit_food = (food_id) ->
+    $location.url('/edit/'+food_id)
+    return true
+
 
   $scope.delete_food = (food_id) ->
     $scope.delete_food_id = food_id
     $('#ok').data('id', food_id)
     $('#deleteConfirm').modal('show')
-    return
+    return true
 
   $('#ok').on 'click', () ->
     id = $(this).data('id')
@@ -77,12 +83,8 @@ angular.module('OrderMeal:Admin').controller 'AdminAllController', ['$scope', '$
         100
     $('#deleteConfirm').modal('hide')
 
+  api.user_index_all_food index_success_handler, index_error_handler
 
-  remove_foods_by_id = (id) ->
-    _.each $scope.foods, (food, index) ->
-      if food.food.food_id == id
-        $scope.foods.splice(index, 1)
-        return
 ]
 
 angular.module('OrderMeal:Admin').controller 'AdminFoodNewController', ['$scope', '$location', 'api', ($scope, $location, api) ->

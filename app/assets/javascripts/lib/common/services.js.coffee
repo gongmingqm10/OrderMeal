@@ -1,6 +1,9 @@
 angular.module('OrderMeal:Common').factory 'api', ['$cookies','$http', ($cookies, $http)->
   _current_user = jQuery.parseJSON($cookies.user) if $cookies.user?
 
+  current_user: ->
+    _current_user || ''
+
   user_create_food_new: (success_handler, error_handler) ->
     uri = "api/users/#{_current_user.id}/foods/new"
     $http.get(uri)
@@ -15,6 +18,12 @@ angular.module('OrderMeal:Common').factory 'api', ['$cookies','$http', ($cookies
 
   user_index_all_food: (success_handler, error_handler) ->
     uri = "api/users/#{_current_user.id}/foods"
+    $http.get(uri)
+    .success(success_handler)
+    .error(error_handler)
+
+  index_all_food: (success_handler, error_handler) ->
+    uri = "api/foods"
     $http.get(uri)
     .success(success_handler)
     .error(error_handler)

@@ -12,6 +12,12 @@ class WebUiController < ApplicationController
     render 'login', layout: nil
   end
 
+  def logout
+    session.delete(:user_id)
+    cookies.delete(:user)
+    redirect_to login_path
+  end
+
   def sessions
     user = User.authenticate(params[:username], params[:password])
     if user
@@ -66,8 +72,8 @@ class WebUiController < ApplicationController
   end
 
   def login?
-    @json = cookies[:user].blank? ? {} : JSON.parse(cookies[:user])
-    if @json['id'].blank? || @json['id'] != session['user_id']
+    json = cookies[:user].blank? ? {} : JSON.parse(cookies[:user])
+    if json['id'].blank? || json['id'] != session['user_id']
       redirect_to login_path
     end
   end

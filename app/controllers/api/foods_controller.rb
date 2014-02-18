@@ -9,6 +9,11 @@ class Api::FoodsController < ApiController
     @foods_length = @foods.length
   end
 
+  def index_all
+    @foods = Food.order_by(:created_at.desc)
+    @foods_length = @foods.length
+  end
+
   def edit
     @food = Food.find_by(:_id => params[:id])
   end

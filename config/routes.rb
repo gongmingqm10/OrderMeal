@@ -57,12 +57,13 @@ Ordermeal::Application.routes.draw do
     resources :users do
       resources :foods
     end
-
+    get 'foods', to: 'foods#index_all'
     post 'file-upload', to: 'files#create'
   end
 
   get 'login', to: 'web_ui#login'
   post 'login', to: 'web_ui#sessions'
+  delete 'logout', to: 'web_ui#logout', as: :logout
 
   get 'admin', to: 'web_ui#admin'
   get 'admin/all', to: 'web_ui#admin_all'

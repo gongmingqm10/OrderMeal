@@ -10,10 +10,18 @@
 <body ng-controller="AdminController" >
 
 <div class="nav navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-      <a class="navbar-brand" href="/admin"><i class="fa fa-home"></i> 管理中心</a>
-      <div class="navbar-right">
-      </div>
+    <div class="container" ng-controller="UserPanelController">
+        <a class="navbar-brand" href="/admin"><i class="fa fa-home"></i> 管理中心</a>
+        <div class="dropdown pull-right">
+          <a href="javascript:void(0);" class="toggle-btn" id="userDropdownMenu" data-toggle="dropdown">
+            {{display_name}} <i class="fa fa-user"></i><span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="userDropdownMenu">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-gear"></i> 设置</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" data-method="delete" href="/logout" rel="nofollow"><i class="fa fa-sign-out"></i> 注销</a></li>
+          </ul>
+        </div>
     </div>
 </div>
 <div class="container main" ng-view></div>
